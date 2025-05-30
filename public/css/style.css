@@ -1,0 +1,224 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --warning-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    min-height: 100vh;
+    height: 100vh;
+    z-index: 1000;
+    background: var(--primary-gradient);
+    box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+}
+.main-content {
+    margin-left: 240px; 
+    transition: margin-left 0.3s;
+    min-height: 100vh;
+    background: transparent;
+}
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.stats-card {
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+.stats-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.stats-card:nth-child(2) .card {
+    background: var(--secondary-gradient);
+}
+.stats-card:nth-child(3) .card {
+    background: var(--success-gradient);
+}
+.nav-link {
+    border-radius: 10px;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+    color: rgba(255,255,255,0.8) !important;
+}
+.nav-link:hover, .nav-link.active {
+    background: rgba(255,255,255,0.2);
+    color: white !important;
+    transform: translateX(10px);
+}
+.user-info-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.job-card, .application-card {
+    border-left: 4px solid;
+    border-radius: 10px !important;
+    transition: all 0.3s ease;
+}
+.job-card {
+    border-left-color: #667eea;
+}
+.application-card {
+    border-left-color: #28a745;
+}
+.job-card:hover, .application-card:hover {
+    border-left-width: 8px;
+    padding-left: 20px;
+}
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+.table thead {
+    background: var(--primary-gradient);
+    color: white;
+}
+.btn {
+    border-radius: 25px;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.modal-content {
+    border-radius: 20px;
+    border: none;
+}
+.modal-header {
+    background: var(--primary-gradient);
+    color: white;
+    border-radius: 20px 20px 0 0;
+}
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+.form-control:focus, .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.alert {
+    border-radius: 15px;
+    border: none;
+}
+.badge {
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+.section-header {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+
+.empty-state {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+}
+.empty-state i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+.btn-post-job{
+    border: none;
+    outline: none;
+    border-radius: 3rem;
+    background: #0d6efd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 6px;
+    padding: 8px 20px;
+    color: #fff;
+    transition: .3s ease;
+}
+.btn-post-job .plus{
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.btn-post-job:hover{
+    background: #0066ff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.salary_type{
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+.text-muted{
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        min-height: auto;
+    }
+    
+    .stats-card {
+        margin-bottom: 15px;
+    }
+}
+@media (max-width: 991.98px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        min-height: auto;
+        height: auto;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
